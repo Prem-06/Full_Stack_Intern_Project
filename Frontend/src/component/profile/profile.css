@@ -1,41 +1,103 @@
+/* General container styling */
+.profile-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Signout button styling */
+.signout-div {
+  align-self: flex-end;
+}
+
+.signout-div button {
+  background-color: #ff4b5c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.signout-div button:hover {
+  background-color: #ff1f38;
+}
+
+/* Profile container styling */
 .profile-container {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 400px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  
-  .profile-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .profile-fullname {
-    font-size: 24px;
-    margin: 0;
-    color: #333;
-  }
-  
-  .profile-username {
-    font-size: 18px;
-    color: #777;
-    margin: 5px 0;
-  }
-  
-  .profile-email {
-    font-size: 16px;
-    color: #555;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Profile picture styling */
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Profile details styling */
+.profile-details {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-fullname {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-username,
+.profile-email {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* About section styling */
+.about-div {
+  width: 80%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.about-div h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about-div p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Update button styling */
+.update-div {
+  margin-top: 20px;
+}
+
+.update-div button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.update-div button:hover {
+  background-color: #45a049;
+}

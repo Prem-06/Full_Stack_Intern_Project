@@ -1,7 +1,16 @@
-.App {
-    text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+}
+.app {
+  background-image: url('https://media.istockphoto.com/id/1372399516/vector/dark-blue-defocused-blurred-motion-gradient-soft-abstract-background-vector.jpg?s=612x612&w=0&k=20&c=ulLw1_awuztJ1ujhXSBAjQpI4L5PHuF-RE01zlAQHZ0=');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
+    align-items: center;
+    justify-content: center;
   }
