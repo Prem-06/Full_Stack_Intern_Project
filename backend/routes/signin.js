@@ -7,6 +7,8 @@ const jwt=require('jsonwebtoken')
 const JWT_secret=require('../keys.js')
 
 
+
+
 router.post('/signin',(req,res)=>{
     const {email,password}=req.body;
     if(!email || !password){
@@ -24,7 +26,7 @@ router.post('/signin',(req,res)=>{
             }
             else{
                 const token=jwt.sign({_id:detail.id},JWT_secret)
-                res.status(200).json({token:token,detail:detail})
+               return res.status(200).json({token:token,detail:detail})
             }
         }).catch((err)=>{
             res.status(400).json({error:"Internal Server Error"})

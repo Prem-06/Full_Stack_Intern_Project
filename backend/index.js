@@ -6,6 +6,7 @@ const port=80;
 app.use(cors())
 app.use(express.json());
 require('./model/user_detail.js')
+require('./model/temp_details.js')
 app.use(require('./routes/signup.js'))
 app.use(require('./routes/signin.js'))
 

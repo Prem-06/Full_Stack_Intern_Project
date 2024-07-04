@@ -52,7 +52,7 @@ const Signin = () => {
     </div>
     <div className='loginform2'>
           Don't have an account?
-          <Link to="/signup"><span style={{color:"blue",cursor:"pointer"}}>Sign Up</span></Link>
+          <Link to="/signup"><span >Sign Up</span></Link>
     </div>
     </div>
     </div>

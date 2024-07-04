@@ -34,3 +34,14 @@
 #login-btn:hover{
     box-shadow:  0px 0px 8px black;
 }
+
+.loginform2 a{
+text-decoration: none;
+}
+.loginform2 a span{
+    color: rgb(57, 57, 202);
+    cursor: pointer;
+}
+.loginform2 a span:hover{
+   text-decoration: underline;
+}
