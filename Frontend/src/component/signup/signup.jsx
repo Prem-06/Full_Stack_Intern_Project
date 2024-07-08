@@ -6,7 +6,7 @@ import {toast } from 'react-toastify';
 import logo from '../../../public/picture/user.jpg'
 
 const Signup = () => {
-  const Connecting_url =process.env.backend_url
+  const Connecting_url ="https://full-stack-intern-project.onrender.com"
   const [otp_show,setotp_show]=useState(false);
   const [otp_id,setotp_id]=useState("");
   const [otp,setotp]=useState("");

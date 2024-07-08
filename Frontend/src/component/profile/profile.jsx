@@ -7,7 +7,7 @@ import Education from './education';
 import logo from '../../../public/picture/profile.jpg'
 
 const Profile = () => {
-  const Connecting_url =process.env.backend_url
+  const Connecting_url ="https://full-stack-intern-project.onrender.com"
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")

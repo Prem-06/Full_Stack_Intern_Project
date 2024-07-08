@@ -4,7 +4,7 @@ import './contact.css';
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = (prop) => {
-  const Connecting_url =process.env.backend_url
+  const Connecting_url ="https://full-stack-intern-project.onrender.com"
   const {data}=prop
   const [number, setNumber] = useState(data.phone);
   const [address, setaddress] = useState(data.address);
