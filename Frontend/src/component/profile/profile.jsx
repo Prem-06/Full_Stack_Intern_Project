@@ -5,7 +5,7 @@ import './profile.css';
 import ContactInformation from './contact';
 import Education from './education';
 import logo from '../../../public/picture/profile.jpg'
-import Connecting_url from '../../../connection.js'
+
 const Profile = () => {
   
   const profileData=JSON.parse(localStorage.getItem('detail'))
