@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './contact.css';
+import Connecting_url from '../../../connection.js'
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = (prop) => {
@@ -29,7 +30,7 @@ const Contact = (prop) => {
         return;
       }
     }
-    fetch(`http://localhost/${page}`,{
+    fetch(`${Connecting_url}/${page}`,{
       method:'post',
       headers:{
         'Content-Type':'Application/json'

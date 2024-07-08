@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import {toast } from 'react-toastify';
 import logo from '../../../public/picture/user.jpg'
+import Connecting_url from '../../../connection.js';
 const Signup = () => {
   const [otp_show,setotp_show]=useState(false);
   const [otp_id,setotp_id]=useState("");
@@ -27,7 +28,7 @@ if(!emailregex.test(email)){
     notifyA("Invalid Email")
     return;
 }
-  fetch("http://localhost/signup",{
+  fetch(`${Connecting_url}/signup`,{
     method:"post",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({
@@ -59,7 +60,7 @@ if(!emailregex.test(email)){
     notifyA("Fill Details");
     return;
   }
-  fetch('http://localhost/otp',{
+  fetch(`${Connecting_url}/otp`,{
     method:'post',
     headers:{
       "Content-Type":"Application/json",

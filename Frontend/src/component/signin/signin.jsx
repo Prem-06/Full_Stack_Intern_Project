@@ -3,6 +3,7 @@ import './signin.css'
 import { useState,useContext } from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import {toast } from 'react-toastify';
+import Connecting_url from '../../../connection.js'
 import logo from '../../../public/picture/user.jpg'
 const Signin = () => {
   const [email,setemail]=useState("");
@@ -16,7 +17,7 @@ const Signin = () => {
         notifyA("Invalid Email")
         return;
     }
-      fetch("http://localhost/signin",{
+      fetch(`${Connecting_url}/signin`,{
         method:"post",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({

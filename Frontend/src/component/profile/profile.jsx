@@ -5,6 +5,7 @@ import './profile.css';
 import ContactInformation from './contact';
 import Education from './education';
 import logo from '../../../public/picture/profile.jpg'
+import Connecting_url from '../../../connection.js'
 const Profile = () => {
   
   const profileData=JSON.parse(localStorage.getItem('detail'))
@@ -17,7 +18,7 @@ function addabout(about){
   if(about==""){
     return;
   }
-   fetch('http://localhost/about',{
+   fetch(`${Connecting_url}/about`,{
     method:"post",
     headers:{
       "Content-Type":"Application/json"
