@@ -4,8 +4,9 @@ import { useEffect,useState } from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import {toast } from 'react-toastify';
 import logo from '../../../public/picture/user.jpg'
-import Connecting_url from '../../../connection.js';
+
 const Signup = () => {
+  const Connecting_url =process.env.backend_url
   const [otp_show,setotp_show]=useState(false);
   const [otp_id,setotp_id]=useState("");
   const [otp,setotp]=useState("");

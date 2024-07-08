@@ -1,4 +1,5 @@
 import './App.css'
+import dotenv from 'dotenv';
 import Signup from './component/signup/signup.jsx'
 import Profile from './component/profile/profile.jsx'
 import Signin from './component/signin/signin.jsx'
@@ -6,7 +7,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
-  
+  dotenv.config();
 
   return (
     <BrowserRouter>

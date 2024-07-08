@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './contact.css';
-import Connecting_url from '../../../connection.js'
+ 
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = (prop) => {
+  const Connecting_url =process.env.backend_url
   const {data}=prop
   const [number, setNumber] = useState(data.phone);
   const [address, setaddress] = useState(data.address);
