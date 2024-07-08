@@ -18,6 +18,15 @@ const userschema=new mongoose.Schema({
     },
     photo:{
         type:String
+    },
+    about:{
+        type:String
+    },
+    phone:{
+        type:String
+    },
+    address:{
+        type:String
     }
 })
 
