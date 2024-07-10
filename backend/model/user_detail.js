@@ -27,7 +27,42 @@ const userschema=new mongoose.Schema({
     },
     address:{
         type:String
-    }
+    },
+    education:[{
+       institute:{
+        type:String
+       },
+       degree:{
+        type:String
+       },
+       start:{
+        type:String
+       },
+       end:{
+        type:String
+       }
+    }],
+    profession:[{
+        companyName:{
+         type:String
+        },
+        jobType:{
+            type:String
+        },
+        role:{
+            type:String
+        },
+        startDate:{
+            type:String
+        },
+        endDate:{
+            type:String
+        },
+        isOngoing:{
+           type:Boolean
+        }
+
+    }]
 })
 
 mongoose.model("USER",userschema);

@@ -13,6 +13,8 @@ app.use(require('./routes/signup.js'))
 app.use(require('./routes/signin.js'))
 app.use(require('./routes/about.js'))
 app.use(require('./routes/phone.js'))
+app.use(require('./routes/education.js'))
+app.use(require('./routes/profession.js'))
 
 mongoose.connect(uri).then(()=>{
     console.log('Connected to Database')

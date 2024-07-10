@@ -2,12 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 import './profile.css';
-import ContactInformation from './contact';
-import Education from './education';
+import ContactInformation from './contact/contact';
+import Education from './education/education';
+import Profession_detail from './profession/profession_detail';
 import logo from '../../../public/picture/profile.jpg'
 
 const Profile = () => {
-  const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  const Connecting_url ="http://localhost:3000"
+  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")
@@ -97,7 +99,7 @@ function signout(){
 
 <ContactInformation data={profileData}/>
 <Education/>
-   
+   <Profession_detail/>
       </div>
 
     
