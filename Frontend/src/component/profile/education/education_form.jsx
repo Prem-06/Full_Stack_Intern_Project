@@ -2,13 +2,12 @@ import React, { useState,useContext } from 'react';
 import './education_form.css'
 import Context from '../../../context.jsx'
 const Eduction_form = ({ setdetail, isedu }) => {
-  const {setloader}=useContext(Context)
+  const {setloader,Connecting_url}=useContext(Context)
   const [institute, setInstituteName] = useState('');
   const [degree, setDegree] = useState('');
   const [start, setStartDate] = useState('');
   const [end, setEndDate] = useState('');
-  const Connecting_url ="http://localhost:3000"
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  
    const userid=JSON.parse(localStorage.getItem('detail'))._id;
   function education_send(){
     if(institute=="" || degree==""||start==""||end==""){
