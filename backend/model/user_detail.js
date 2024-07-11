@@ -62,7 +62,26 @@ const userschema=new mongoose.Schema({
            type:Boolean
         }
 
-    }]
+    }],
+    social_link:{
+        facebook:{
+            type:String,
+            default:""
+        },
+        instagram:{
+            type:String,
+            default:""
+        },
+        twitter:{
+            type:String,
+            default:""
+        },
+        linkedin:{
+            type:String,
+            default:""
+        }
+       }
+    
 })
 
 mongoose.model("USER",userschema);

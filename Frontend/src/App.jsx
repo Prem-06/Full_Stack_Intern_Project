@@ -8,15 +8,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import { RotatingLines } from 'react-loader-spinner'
 import { useState,useContext } from 'react'
 import Context from './context.jsx'
+import Social_media_modal from './component/modal/social_media_modal.jsx'
+import Signout_modal from './component/modal/signout_modal.jsx'
 function App() {
   
   const [loader,setloader]=useState(false)
-  const Connecting_url ="https://full-stack-intern-project.onrender.com"
-  // const Connecting_url ="http://localhost:3000"
+  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  const Connecting_url ="http://localhost:3000"
+  const [signoutmodalopen,setsignoutmodalopen]=useState(false)
+  const [social_media_modalopen,setsocial_media_modalopen]=useState(false)
   return (
     <BrowserRouter>
     
-   <Context.Provider value={{setloader,loader,Connecting_url}}> 
+   <Context.Provider value={{setloader,loader,Connecting_url,setsignoutmodalopen,setsocial_media_modalopen}}> 
    {
     
       loader?(<div className='loader_div'><RotatingLines
@@ -37,6 +41,8 @@ function App() {
             <Route path='/profile' element={<Profile/>}></Route>
          
           </Routes>
+          {signoutmodalopen && <Signout_modal setsignoutmodalopen={setsignoutmodalopen}/>}
+          {social_media_modalopen && <Social_media_modal setsocial_media_modalopen={setsocial_media_modalopen}/>}
           <ToastContainer theme="dark"/>
             </div>)
     }

@@ -8,6 +8,7 @@
   }
   
   .social-media h2 {
+    align-items: flex-start;
     margin-bottom: 20px;
     color: #333;
   }
@@ -16,6 +17,7 @@
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-bottom: 20px;
   }
   
   .social-icons .icon {

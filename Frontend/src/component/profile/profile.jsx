@@ -10,7 +10,7 @@ import Social_media from './social_media/socical_media.jsx';
 import logo from '../../../public/picture/profile.jpg'
 
 const Profile = () => {
-  const {Connecting_url,setloader}=useContext(Context)
+  const {Connecting_url,setloader,setsignoutmodalopen}=useContext(Context)
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")
@@ -53,12 +53,7 @@ setloader(false)
   }
 
 function signout(){
-  setloader(true)
-  localStorage.removeItem('jwt')
-  localStorage.removeItem('detail')
-  localStorage.removeItem('detail')
-  setloader(false)
-  navigate('/')
+  setsignoutmodalopen(true)
 }
   return (
     <div className="profile-div">
