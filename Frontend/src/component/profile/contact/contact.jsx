@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import './contact.css';
- 
+import Context from '../../../context.jsx'
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Contact = (prop) => {
-  const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  const {Connecting_url,setloader}=useContext(Context)
+ 
   const {data}=prop
   const [number, setNumber] = useState(data.phone);
   const [address, setaddress] = useState(data.address);
@@ -31,6 +32,7 @@ const Contact = (prop) => {
         return;
       }
     }
+    setloader(true)
     fetch(`${Connecting_url}/${page}`,{
       method:'post',
       headers:{
@@ -50,7 +52,9 @@ const Contact = (prop) => {
       setaddress(val.detail.address)
       setNoPresent(true)
       setAddressPresent(true)
+      setloader(false)
     }).catch((err)=>{
+      setloader(false)
       console.log(err)
     })
   }

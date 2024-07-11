@@ -3,11 +3,10 @@ import './signin.css'
 import { useState,useContext } from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import {toast } from 'react-toastify';
-
+import Context from '../../context';
 import logo from '../../../public/picture/user.jpg'
 const Signin = () => {
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
-  const Connecting_url ="http://localhost:3000"
+  const {Connecting_url,setloader}=useContext(Context)
   const [email,setemail]=useState("");
   const [password,setpassword]=useState("");
   const navigate=useNavigate();
@@ -19,6 +18,7 @@ const Signin = () => {
         notifyA("Invalid Email")
         return;
     }
+    setloader(true)
       fetch(`${Connecting_url}/signin`,{
         method:"post",
         headers:{"Content-Type":"application/json"},
@@ -28,6 +28,7 @@ const Signin = () => {
       }).then((res)=>{
         return res.json();
       }).then((val)=>{
+        setloader(false)
         if(val.error){
           notifyA(val.error);
         }
@@ -40,7 +41,8 @@ const Signin = () => {
           navigate("/profile")
         }
       }).catch((err)=>{
-        console.log(err)
+        setloader(false)
+        notifyA('Error Occur')
       })
      }
 

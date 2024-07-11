@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './signup.css'
 import { useEffect,useState } from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import {toast } from 'react-toastify';
 import logo from '../../../public/picture/user.jpg'
-
+import Context from '../../context.jsx';
 const Signup = () => {
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
-  const Connecting_url ="http://localhost:3000"
+  const {Connecting_url,setloader}=useContext(Context)
   const [otp_show,setotp_show]=useState(false);
   const [otp_id,setotp_id]=useState("");
   const [otp,setotp]=useState("");
@@ -30,6 +29,7 @@ if(!emailregex.test(email)){
     notifyA("Invalid Email")
     return;
 }
+setloader(true)
   fetch(`${Connecting_url}/signup`,{
     method:"post",
     headers:{"Content-Type":"application/json"},
@@ -39,6 +39,7 @@ if(!emailregex.test(email)){
   }).then((res)=>{
     return res.json();
   }).then((val)=>{
+    setloader(false)
     if(val.error){
       notifyA(val.error);
     }
@@ -62,6 +63,7 @@ if(!emailregex.test(email)){
     notifyA("Fill Details");
     return;
   }
+  setloader(true)
   fetch(`${Connecting_url}/otp`,{
     method:'post',
     headers:{
@@ -74,6 +76,7 @@ if(!emailregex.test(email)){
   }).then((val)=>{
     return val.json();
   }).then((res)=>{
+    setloader(false)
     if(res.error){
       notifyA(res.error)
     }

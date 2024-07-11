@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import './education_component.css';
+import Context from '../../../context.jsx'
 import { FaTrash } from 'react-icons/fa';
 const Education_component = (props) => {
+  const {Connecting_url,setloader}=useContext(Context)
  const {details,seteducation}=props;
  const userid=JSON.parse(localStorage.getItem('detail'))._id;
- const Connecting_url ="http://localhost:3000"
- // const Connecting_url ="https://full-stack-intern-project.onrender.com"
+ 
   function deleteeducation(){
+    setloader(true)
   fetch(`${Connecting_url}/deleteeducation`,{
     method:'delete',
     headers:{
@@ -22,9 +24,10 @@ const Education_component = (props) => {
     localStorage.removeItem('detail')
     localStorage.setItem('detail',JSON.stringify(val.detail))
     seteducation(val.detail.education)
-    console.log('done')
+    setloader(false)
   }).catch((err)=>{
-    console.log(err)
+    setloader(false)
+   
   })   
   }
 

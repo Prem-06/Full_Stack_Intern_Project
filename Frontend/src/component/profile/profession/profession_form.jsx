@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import './profession_form.css';
-
+import Context from '../../../context.jsx'
 const Profession_form = ({ispro,setprofessiondetail}) => {
- 
+  const {Connecting_url,setloader}=useContext(Context)
   const [companyName, setCompanyName] = useState('');
   const [role, setRole] = useState('');
   const [jobType, setJobType] = useState(''); 
@@ -11,9 +11,7 @@ const Profession_form = ({ispro,setprofessiondetail}) => {
   const [isOngoing, setIsOngoing] = useState(false);
   const userid=JSON.parse(localStorage.getItem('detail'))._id;
   const jobTypes = ['Full-time','Part-time','Contract','Freelance','Internship','Remote','Other'];
-  const Connecting_url ="http://localhost:3000"
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
-
+  
   const handleOngoingChange = (e) => {
     setIsOngoing(e.target.checked);
     if (e.target.checked) {
@@ -26,6 +24,7 @@ const Profession_form = ({ispro,setprofessiondetail}) => {
     if(companyName=="" || role==""||startDate==""||jobType==""){
       return;
     }
+    setloader(true)
     fetch(`${Connecting_url}/profession`,{
       method:'post',
       headers:{
@@ -52,9 +51,9 @@ const Profession_form = ({ispro,setprofessiondetail}) => {
       setEndDate("")
       setStartDate("")
       setIsOngoing(false)
-
+      setloader(false)
     }).catch((err)=>{
-      console.log("err")
+      setloader(false)
     })
   }
 

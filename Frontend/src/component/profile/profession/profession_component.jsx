@@ -1,12 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
 import './profession_component.css';
+import Context from '../../../context.jsx'
 import { FaTrash } from 'react-icons/fa';
 const Profession_component = (prop) => {
+  const {Connecting_url,setloader}=useContext(Context)
   const {proffdetail,setprofessiondetail,key}=prop;
   const userid=JSON.parse(localStorage.getItem('detail'))._id;
-  const Connecting_url ="http://localhost:3000"
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  
    function deleteprofession(){
+    setloader(true)
    fetch(`${Connecting_url}/deleteprofession`,{
      method:'delete',
      headers:{
@@ -22,8 +25,9 @@ const Profession_component = (prop) => {
      localStorage.removeItem('detail')
      localStorage.setItem('detail',JSON.stringify(val.detail))
      setprofessiondetail(val.detail.profession)
-     console.log('done')
+     setloader(false)
    }).catch((err)=>{
+    setloader(false)
      console.log(err)
    })   
    }

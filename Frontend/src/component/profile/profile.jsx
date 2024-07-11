@@ -1,15 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useContext} from 'react';
 import {useNavigate} from 'react-router-dom'
 import './profile.css';
+import Context from '../../context.jsx';
 import ContactInformation from './contact/contact';
 import Education from './education/education';
 import Profession_detail from './profession/profession_detail';
+import Social_media from './social_media/socical_media.jsx';
 import logo from '../../../public/picture/profile.jpg'
 
 const Profile = () => {
-  const Connecting_url ="http://localhost:3000"
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  const {Connecting_url,setloader}=useContext(Context)
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")
@@ -20,6 +21,7 @@ function addabout(about){
   if(about==""){
     return;
   }
+  setloader(true)
    fetch(`${Connecting_url}/about`,{
     method:"post",
     headers:{
@@ -34,12 +36,14 @@ function addabout(about){
    })
    .then((val)=>{
    
-    localStorage.removeItem('detail');
+localStorage.removeItem('detail');
 localStorage.setItem('detail', JSON.stringify(val.detail));
+setloader(false)
     setabout(val.detail.about)
     setabout_val("")
   
    }).catch((err)=>{
+    setloader(false)
     console.log(err)
    })
 }
@@ -48,11 +52,12 @@ localStorage.setItem('detail', JSON.stringify(val.detail));
    setabout("")
   }
 
-
 function signout(){
+  setloader(true)
   localStorage.removeItem('jwt')
   localStorage.removeItem('detail')
   localStorage.removeItem('detail')
+  setloader(false)
   navigate('/')
 }
   return (
@@ -95,11 +100,11 @@ function signout(){
     </div>
   )
 }
-
-
-<ContactInformation data={profileData}/>
+<br />
 <Education/>
-   <Profession_detail/>
+<Profession_detail/>
+<ContactInformation data={profileData}/>
+<Social_media/>
       </div>
 
     

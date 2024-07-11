@@ -3,14 +3,13 @@ import './profession_detail.css'
 import Profession_component from './profession_component'
 import Profession_form from './profession_form'
 const Profession_detail = () => {
+ 
   const [isprofession,setisprofession]=useState(false)
   const [professiondetail,setprofession_detail]=useState(JSON.parse(localStorage.getItem('detail')).profession)
   function addprofession(){
    setisprofession(true)
   }
-  const handleFormSubmit = (data) => {
-    console.log('Form Data:', data);
-  };
+ 
  
   return (
     <div className='profession_detail' >

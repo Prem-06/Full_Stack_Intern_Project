@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import './education_form.css'
+import Context from '../../../context.jsx'
 const Eduction_form = ({ setdetail, isedu }) => {
-  
-    const [institute, setInstituteName] = useState('');
+  const {setloader}=useContext(Context)
+  const [institute, setInstituteName] = useState('');
   const [degree, setDegree] = useState('');
   const [start, setStartDate] = useState('');
   const [end, setEndDate] = useState('');
@@ -13,6 +14,7 @@ const Eduction_form = ({ setdetail, isedu }) => {
     if(institute=="" || degree==""||start==""||end==""){
       return;
     }
+    setloader(true)
     fetch(`${Connecting_url}/education`,{
       method:'post',
       headers:{
@@ -36,8 +38,9 @@ const Eduction_form = ({ setdetail, isedu }) => {
       setDegree("")
       setEndDate("")
       setStartDate("")
-
+       setloader(false)
     }).catch((err)=>{
+      setloader(false)
       console.log("err")
     })
   }
