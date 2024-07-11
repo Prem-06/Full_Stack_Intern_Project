@@ -11,8 +11,8 @@ import Context from './context.jsx'
 function App() {
   
   const [loader,setloader]=useState(false)
-  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
-  const Connecting_url ="http://localhost:3000"
+  const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  // const Connecting_url ="http://localhost:3000"
   return (
     <BrowserRouter>
     
