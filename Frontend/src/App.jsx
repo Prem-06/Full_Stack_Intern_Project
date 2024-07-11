@@ -17,6 +17,12 @@ function App() {
    <Context.Provider value={{setloader,loader,Connecting_url}}> 
    {
       loader?(<ThreeDots
+        style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)"
+        }}
         visible={true}
         height="80"
         width="80"
@@ -25,7 +31,7 @@ function App() {
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClass=""
-        />):(<div className='app'>
+    />):(<div className='app'>
           <Routes>
             <Route path='/' element={<Signup/>}></Route>
             <Route path='/signup' element={<Signup/>}></Route>
