@@ -5,33 +5,31 @@ import Signin from './component/signin/signin.jsx'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ThreeDots } from 'react-loader-spinner'
+import { RotatingLines } from 'react-loader-spinner'
 import { useState,useContext } from 'react'
 import Context from './context.jsx'
 function App() {
   
   const [loader,setloader]=useState(false)
-  const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  // const Connecting_url ="https://full-stack-intern-project.onrender.com"
+  const Connecting_url ="http://localhost:3000"
   return (
     <BrowserRouter>
+    
    <Context.Provider value={{setloader,loader,Connecting_url}}> 
    {
-      loader?(<ThreeDots
-        style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)"
-        }}
+    
+      loader?(<div className='loader_div'><RotatingLines
         visible={true}
-        height="80"
-        width="80"
-        color="#4fa94d"
-        radius="9"
-        ariaLabel="three-dots-loading"
+        height="96"
+        width="96"
+        color="black"
+        strokeWidth="5"
+        animationDuration="0.75"
+        ariaLabel="rotating-lines-loading"
         wrapperStyle={{}}
         wrapperClass=""
-    />):(<div className='app'>
+        /></div>):(<div className='app'>
           <Routes>
             <Route path='/' element={<Signup/>}></Route>
             <Route path='/signup' element={<Signup/>}></Route>

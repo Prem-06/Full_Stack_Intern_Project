@@ -14,3 +14,13 @@
     align-items: center;
     justify-content: center;
   }
+  
+  .loader_div{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }

@@ -1,4 +1,4 @@
-/* General container styling */
+
 .profile-div {
   display: flex;
   flex-direction: column;
@@ -29,7 +29,6 @@ textarea {
 }
 
 .signout-div {
-  width: fit-content;
   margin-top: 20px;
   margin-right: 20px;
 }
@@ -155,4 +154,34 @@ hr {
     margin: 20px 0;
   
   
+}
+
+@media (max-width: 700px) {
+  .profile{
+    width: 100%;
+    display: flex;
+    flex-direction:column-reverse;
+    align-items:center;
+    justify-content: space-between;
+  }
+  .signout-div{
+width: 100%;
+text-align: right;
+margin-top: 20px;
+margin-right: 10px;
+  }
+  .profile-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+  width: 95%;
+  
+}
 }
