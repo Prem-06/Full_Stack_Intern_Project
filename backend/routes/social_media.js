@@ -6,17 +6,18 @@ const USER=mongoose.model("USER");
 
 router.post('/sociallink',(req,res)=>{
     const {platform,link,id}=req.body;
+   
     USER.findById(id).then((detail)=>{
         if(platform=="facebook"){
             detail.social_link.facebook=link;
         }
-        else if(platform=="twitter"){
+         if(platform=="twitter"){
             detail.social_link.twitter=link;
         }
-        else if(platform=="instagram"){
-            detail.social_link.twitter=link;
+         if(platform=="instagram"){
+            detail.social_link.instagram=link;
         }
-        else{
+        if(platform=="linkedin"){
             detail.social_link.linkedin=link;
         }
        

@@ -4,16 +4,17 @@ import Context from '../../context';
 const Social_media_modal = () => {
   const [platform, setPlatform] = useState('');
   const [link, setLink] = useState('');
-  const {setsocial_media_modalopen,setloader,Connecting_url}=useContext(Context)
+  const {setsocial_media_modalopen,setloader,Connecting_url,setinstagram,setfacebook,settwitter,setlinkedin}=useContext(Context)
   const user_details=JSON.parse(localStorage.getItem('detail'))._id
   const handleClose = () => {
     setsocial_media_modalopen(false)
   };
 
   function handleSave(){
-    if(link==""||platform==""){
-        return;
-    }
+    // if(link==""||platform==""){
+    //     return;
+    // }
+    console.log(platform)
     setloader(true)
     fetch(`${Connecting_url}/sociallink`,{
         method:"post",
@@ -30,6 +31,10 @@ const Social_media_modal = () => {
     }).then((val)=>{
         localStorage.removeItem('detail')
         localStorage.setItem('detail',JSON.stringify(val.detail))
+        setinstagram(val.detail.social_link.instagram)
+        settwitter(val.detail.social_link.twitter)
+        setfacebook(val.detail.social_link.facebook)
+        setlinkedin(val.detail.social_link.linkedin)
         setloader(false)
     }).catch((err)=>{
         setloader(false)

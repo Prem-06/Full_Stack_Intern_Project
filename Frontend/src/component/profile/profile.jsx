@@ -7,14 +7,24 @@ import ContactInformation from './contact/contact';
 import Education from './education/education';
 import Profession_detail from './profession/profession_detail';
 import Social_media from './social_media/socical_media.jsx';
-import logo from '../../../public/picture/profile.jpg'
-
+import logo from '../../../public/picture/profile.png'
+import Profilepic from './profilepic.jsx';
 const Profile = () => {
+  const [changepic,setchangepic]=useState(false)
   const {Connecting_url,setloader,setsignoutmodalopen}=useContext(Context)
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")
   const navigate=useNavigate();
+
+  const changeprofile=()=>{
+    if(changepic){
+      setchangepic(false)
+    }
+    else{
+      setchangepic(true)
+    }
+  }
 
 function addabout(about){
   
@@ -59,7 +69,7 @@ function signout(){
     <div className="profile-div">
       <div className='profile'>
       <div className="profile-container">
-        <div><img src={logo} alt="Profile" className="profile-picture" />
+        <div><img src={logo} alt="Profile" className="profile-picture" onClick={changeprofile} />
       <h1 className="profile-username" >{profileData.username}</h1>
 
         </div>
@@ -68,6 +78,9 @@ function signout(){
         <h1 className="profile-fullname">{profileData.name}</h1>
         <p className="profile-email">{profileData.email}</p>
       </div>
+      {
+    // changepic&& <Profilepic changeprofile={changeprofile}/>
+  }  
     </div>
 
     <div className="signout-div"><button onClick={()=>{signout()}}>Logout</button></div>
@@ -99,7 +112,7 @@ function signout(){
 <Education/>
 <Profession_detail/>
 <ContactInformation data={profileData}/>
-<Social_media/>
+<Social_media  />
       </div>
 
     
