@@ -29,7 +29,6 @@ if(!emailregex.test(email)){
     notifyA("Invalid Email")
     return;
 }
-setloader(true)
   fetch(`${Connecting_url}/signup`,{
     method:"post",
     headers:{"Content-Type":"application/json"},
@@ -37,20 +36,21 @@ setloader(true)
       name:name,email:email,username:username,password:password
     })
   }).then((res)=>{
+    setotp_show(true)
     return res.json();
   }).then((val)=>{
-    setloader(false)
     if(val.error){
       notifyA(val.error);
     }
     else{
+      
       setname("");
       setemail("");
       setusername("");
       setpassword("");
       notifyB(val.message)
       setotp_id(val.otp_id)
-     setotp_show(true)
+      
     }
   }).catch((err)=>{
     notifyA("Error Occur")
