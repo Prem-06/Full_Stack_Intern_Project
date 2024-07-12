@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState,useContext} from 'react';
 import {useNavigate} from 'react-router-dom'
+import {toast} from 'react-toastify'
 import './profile.css';
 import Context from '../../context.jsx';
 import ContactInformation from './contact/contact';
@@ -8,27 +9,18 @@ import Education from './education/education';
 import Profession_detail from './profession/profession_detail';
 import Social_media from './social_media/socical_media.jsx';
 import logo from '../../../public/picture/profile.png'
-import Profilepic from './profilepic.jsx';
+
 const Profile = () => {
-  const [changepic,setchangepic]=useState(false)
+  const notifyA=(val)=> toast.warn(val)
   const {Connecting_url,setloader,setsignoutmodalopen}=useContext(Context)
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")
-  const navigate=useNavigate();
-
-  const changeprofile=()=>{
-    if(changepic){
-      setchangepic(false)
-    }
-    else{
-      setchangepic(true)
-    }
-  }
-
+  
 function addabout(about){
   
   if(about==""){
+    notifyA('Empty Feild')
     return;
   }
   setloader(true)
@@ -54,7 +46,7 @@ setloader(false)
   
    }).catch((err)=>{
     setloader(false)
-    console.log(err)
+    
    })
 }
  function editabout(){
@@ -69,7 +61,7 @@ function signout(){
     <div className="profile-div">
       <div className='profile'>
       <div className="profile-container">
-        <div><img src={logo} alt="Profile" className="profile-picture" onClick={changeprofile} />
+        <div><img src={logo} alt="Profile" className="profile-picture"  />
       <h1 className="profile-username" >{profileData.username}</h1>
 
         </div>
@@ -79,7 +71,7 @@ function signout(){
         <p className="profile-email">{profileData.email}</p>
       </div>
       {
-    // changepic&& <Profilepic changeprofile={changeprofile}/>
+    
   }  
     </div>
 

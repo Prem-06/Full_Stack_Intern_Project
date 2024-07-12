@@ -1,5 +1,6 @@
 import React, { useState,useContext } from 'react';
 import './profession_form.css';
+import {toast} from 'react-toastify'
 import Context from '../../../context.jsx'
 const Profession_form = ({ispro,setprofessiondetail}) => {
   const {Connecting_url,setloader}=useContext(Context)
@@ -11,7 +12,7 @@ const Profession_form = ({ispro,setprofessiondetail}) => {
   const [isOngoing, setIsOngoing] = useState(false);
   const userid=JSON.parse(localStorage.getItem('detail'))._id;
   const jobTypes = ['Full-time','Part-time','Contract','Freelance','Internship','Remote','Other'];
-  
+  const notifyA=(val)=> toast.warn(val)
   const handleOngoingChange = (e) => {
     setIsOngoing(e.target.checked);
     if (e.target.checked) {
@@ -22,6 +23,7 @@ const Profession_form = ({ispro,setprofessiondetail}) => {
 
   function profession_send(){
     if(companyName=="" || role==""||startDate==""||jobType==""){
+      notifyA('Empty Feild')
       return;
     }
     setloader(true)

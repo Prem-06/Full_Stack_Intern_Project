@@ -2,10 +2,11 @@ import React, { useState,useContext } from 'react';
 import './contact.css';
 import Context from '../../../context.jsx'
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-
+import { toast } from 'react-toastify';
 const Contact = (prop) => {
   const {Connecting_url,setloader}=useContext(Context)
- 
+  const notifyA=(val)=> toast.warn(val)
+  
   const {data}=prop
   const [number, setNumber] = useState(data.phone);
   const [address, setaddress] = useState(data.address);
@@ -24,11 +25,13 @@ const Contact = (prop) => {
   function send_contact(page){
     if(page=="address"){
       if(address==""){
+        notifyA('Address must not be empty')
         return;
       }
     }
     if(page=="phone"){
       if(number.length!=10){
+        notifyA('Number will be only 10 numbers')
         return;
       }
     }

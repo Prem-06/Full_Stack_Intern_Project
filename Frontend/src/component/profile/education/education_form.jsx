@@ -1,5 +1,6 @@
 import React, { useState,useContext } from 'react';
 import './education_form.css'
+import { toast } from 'react-toastify';
 import Context from '../../../context.jsx'
 const Eduction_form = ({ setdetail, isedu }) => {
   const {setloader,Connecting_url}=useContext(Context)
@@ -7,10 +8,11 @@ const Eduction_form = ({ setdetail, isedu }) => {
   const [degree, setDegree] = useState('');
   const [start, setStartDate] = useState('');
   const [end, setEndDate] = useState('');
-  
+  const notifyA=(val)=> toast.warn(val)
    const userid=JSON.parse(localStorage.getItem('detail'))._id;
   function education_send(){
     if(institute=="" || degree==""||start==""||end==""){
+      notifyA('Empty Feild')
       return;
     }
     setloader(true)

@@ -29,6 +29,7 @@ if(!emailregex.test(email)){
     notifyA("Invalid Email")
     return;
 }
+setloader(true)
   fetch(`${Connecting_url}/signup`,{
     method:"post",
     headers:{"Content-Type":"application/json"},
@@ -36,6 +37,7 @@ if(!emailregex.test(email)){
       name:name,email:email,username:username,password:password
     })
   }).then((res)=>{
+    setloader(false)
     setotp_show(true)
     return res.json();
   }).then((val)=>{
