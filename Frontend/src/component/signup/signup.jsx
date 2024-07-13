@@ -37,19 +37,19 @@ setloader(true)
       name:name,email:email,username:username,password:password
     })
   }).then((res)=>{
-    setloader(false)
-    setotp_show(true)
+    setloader(false) 
     return res.json();
   }).then((val)=>{
     if(val.error){
       notifyA(val.error);
     }
     else{
-      
+     
       setname("");
       setemail("");
       setusername("");
       setpassword("");
+      setotp_show(true)
       notifyB(val.message)
       setotp_id(val.otp_id)
       
