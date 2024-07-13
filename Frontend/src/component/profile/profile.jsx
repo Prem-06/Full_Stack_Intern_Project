@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState,useContext} from 'react';
-import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import './profile.css';
 import Context from '../../context.jsx';
@@ -16,7 +15,10 @@ const Profile = () => {
   const profileData=JSON.parse(localStorage.getItem('detail'))
   const [about,setabout]=useState(profileData.about);
   const [about_val,setabout_val]=useState("")
-  
+ 
+
+
+
 function addabout(about){
   
   if(about==""){
@@ -63,9 +65,9 @@ function signout(){
       <div className="profile-container">
         <div><img src={logo} alt="Profile" className="profile-picture"  />
       <h1 className="profile-username" >{profileData.username}</h1>
-
+         
         </div>
-      
+       
       <div className="profile-details">
         <h1 className="profile-fullname">{profileData.name}</h1>
         <p className="profile-email">{profileData.email}</p>

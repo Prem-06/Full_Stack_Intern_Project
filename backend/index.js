@@ -17,6 +17,7 @@ app.use(require('./routes/education.js'))
 app.use(require('./routes/profession.js'))
 app.use(require('./routes/social_media.js'))
 
+
 mongoose.connect(uri).then(()=>{
     console.log('Connected to Database')
 }).catch(()=>{
