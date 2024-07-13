@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express=require('express')
 const router=express.Router();
 const mongoose=require('mongoose');
@@ -7,21 +8,22 @@ const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const nodemailer = require("nodemailer");
 const JWT_secret=require('../keys.js')
-
+const otp_sender=process.env.OTP_SENDER_EMAIL
+const otp_sender_pass=process.env.OTP_SENDER__EMIAL_PASS
 const transporter = nodemailer.createTransport({
   service: "gmail",
   port: 587,
   secure: false, 
   auth: {
-    user: "06prempal@gmail.com",
-    pass: "udmn fdnw ojyi fjwv",
+    user: otp_sender,
+    pass: otp_sender_pass,
   },
 });
 
 async function main(email,otp) {
  
   const info = await transporter.sendMail({
-    from: '<06prempal@gmail.com>', 
+    from: otp_sender, 
     to: email, 
     subject: "Email Verification", 
     html: `<html>
