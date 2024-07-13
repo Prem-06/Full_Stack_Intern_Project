@@ -9,7 +9,7 @@ const jwt=require('jsonwebtoken')
 const nodemailer = require("nodemailer");
 const JWT_secret=require('../keys.js')
 const otp_sender=process.env.OTP_SENDER_EMAIL
-const otp_sender_pass=process.env.OTP_SENDER__EMIAL_PASS
+const otp_sender_pass=process.env.OTP_SENDER_EMAIL_PASS
 const transporter = nodemailer.createTransport({
   service: "gmail",
   port: 587,
