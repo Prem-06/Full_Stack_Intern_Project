@@ -42,9 +42,10 @@ setloader(true)
   }).then((val)=>{
     if(val.error){
       notifyA(val.error);
+      setotp_show(false)
+      return;
     }
     else{
-     
       setname("");
       setemail("");
       setusername("");
