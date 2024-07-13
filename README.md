@@ -1,22 +1,30 @@
 Installation Commands:
-
 Frontend Setup:
+Navigate to the project directory:
 
-Steps:
-Go in the directory of project then type
 cd frontend
+Initialize the project:
 npm init
-replace Connecting_url in app.jsx with "http://localhost:port" or "Your backend service URL"
+
+Replace Connecting_url in app.jsx with your desired URL (e.g., http://localhost:port or your backend service URL).
+
+Start the development server:
 npm run dev
 
+
 Backend Setup:
-
-Steps:
-Go in the directory of project then type
+Navigate to the project directory:
 cd backend
+Install the necessary packages:
 npm install
-replace  DATABASE_URL,OTP_SENDER_EMAIL,OTP_SENDER_EMAIL_PASS,PORT from .env then
-node index.js
 
+Replace the following variables in the .env file:
+DATABASE_URL
+OTP_SENDER_EMAIL
+OTP_SENDER_EMAIL_PASS
+PORT
+Start the backend server:
+
+node index.js
 
 
